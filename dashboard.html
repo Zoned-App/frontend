@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+
+
+
+
+    <link href="/src/style.css" rel="stylesheet" />
+    <script type="module" src="/src/main.ts"></script>
+    
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fff4f3] dark:bg-stone-950 px-6 py-4 flex justify-between items-center transition-opacity hover:opacity-80">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#FC4C02] dark:text-[#ff784e]" data-icon="menu">menu</span>
+</div>
+<h1 class="text-2xl font-black italic tracking-tighter text-[#FC4C02]">ZONED</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high ring-2 ring-[#FC4C02]/10">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="Close-up portrait of a smiling young man with clean lighting and a soft-focus urban background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC27_Sx5jTVdwYPW--U290q3lEo6JWphHGEHWq6L0072Be6mBK5zH1QDwYexeLtvIxNzD-pm7o8Y1yuK3ekrExOaZ9AKgm3BpqOwDNRAmM3rW_PBUQjx0cFp6PPdKO_MRNaHenQQlITr1ly7f4eQNpAQ0L9yoM3_rY9IQLF3lW1u210lFI3tyBNSOAn4ZTeUo1c6rEmF1svCXF1nG5EhwZxMZ3L7TpZ4LCRP-mDDEEMm5ZExcDlzxi15ObI368g-1gERBF_YVErf0Y"/>
+</div>
+</header>
+<main class="pt-24 px-6 space-y-10 max-w-2xl mx-auto">
+<!-- Welcome Editorial Moment -->
+<section class="space-y-2">
+<p class="text-on-surface-variant font-medium tracking-wide label-sm uppercase">GOOD MORNING, ALEX</p>
+<h2 class="text-4xl font-extrabold text-on-surface leading-tight tracking-tight">Ready or Not?</h2>
+</section>
+<!-- Stats Bento Grid -->
+<section class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low rounded-lg p-6 space-y-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="emoji_events">emoji_events</span>
+</div>
+<div>
+<p class="text-3xl font-extrabold text-on-surface">24</p>
+<p class="text-on-surface-variant text-sm font-semibold">Games Won</p>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-6 space-y-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="timer">timer</span>
+</div>
+<div>
+<p class="text-3xl font-extrabold text-on-surface">12h</p>
+<p class="text-on-surface-variant text-sm font-semibold">Hiding Time</p>
+</div>
+</div>
+</section>
+<!-- Create New Game Floating Card -->
+<section class="relative">
+<div class="signature-gradient rounded-xl p-8 shadow-[0_16px_64px_rgba(252,76,2,0.15)] flex flex-col items-start gap-6 transform transition-transform active:scale-95">
+<div class="space-y-2">
+<h3 class="text-white text-2xl font-bold">Start a New Seeker Hunt</h3>
+<p class="text-white/80 text-sm leading-relaxed">Gather your friends in a 1km radius and set the boundaries for an epic hide-and-seek match.</p>
+</div>
+<a href="/active-game.html" class="bg-surface-container-lowest text-primary px-8 py-3 rounded-full font-bold text-sm shadow-lg hover:bg-white transition-colors block text-center mt-4">Create New Game</a>
+<div class="absolute -top-4 -right-4 w-24 h-24 bg-white/10 rounded-full blur-2xl"></div>
+</div>
+</section>
+<!-- Active Games Nearby -->
+<section class="space-y-6">
+<div class="flex justify-between items-end px-1">
+<h3 class="text-xl font-bold text-on-surface">Nearby Hideouts</h3>
+<p class="text-primary font-bold text-sm">View All</p>
+</div>
+<div class="space-y-4">
+<!-- Game Card 1 -->
+<div class="bg-surface-container-lowest rounded-lg p-5 flex items-center gap-4 shadow-[0_8px_32px_rgba(35,26,25,0.03)] group">
+<div class="w-20 h-20 rounded-lg overflow-hidden bg-surface-container-high flex-shrink-0">
+<img alt="Forest Location" class="w-full h-full object-cover" data-alt="Lush dense forest with sunlight streaming through tall pine trees and soft forest floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdpKslScXtWdUDMkcwNysOGL9zQHHuhmfVVfLKMBSM3takN5xE08ntSOK3wbsrhX8laA15shJqpxymxvt8plDreKH-wZpvCmAuyxQCIhAAul-Cyxw5dRCdOtaAcqkoAiZPxhvDWOiFjZ0lkkQkETFQ9glGzAmOqmlkVfLYKd78hLpAdzSvZy55-QY8HL_ga40c-S-LWnL2ePU0UHvjA_bQlFcAjNDdPKXX43c8S2Owq98rbJm9I4QYaWYMZ4uFUc8ColWteV8W-30"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<p class="text-xs font-bold text-emerald-600 tracking-wider">LIVE NOW</p>
+</div>
+<h4 class="text-lg font-bold text-on-surface truncate">Shadow Grove Park</h4>
+<p class="text-on-surface-variant text-sm">8 players • 400m away</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant group-active:scale-90 transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- Game Card 2 -->
+<div class="bg-surface-container-lowest rounded-lg p-5 flex items-center gap-4 shadow-[0_8px_32px_rgba(35,26,25,0.03)] group">
+<div class="w-20 h-20 rounded-lg overflow-hidden bg-surface-container-high flex-shrink-0">
+<img alt="Urban Location" class="w-full h-full object-cover" data-alt="Modern architectural glass building with complex geometric shapes and reflections of a blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGKZDzAJLyR_kXxrNxDcEW4LstW4RdHwn5kSVq8Mn7ir9kvcuX1zWIgf7RQ6dcchnHbJaVB27GkXu3IyLo35IzlgDNteheoJgq0zxHhUlGjpxRM7rmsOEpmNqXIbnZfcvqIMOEKGYIA8PrwgM7TuOt-Uw2t9ORPSZIdvnDJj0hKL7TbQOAwUYdN7aLGh3vL1FyruDL5r7vgtzw8kE2-OADuTJRKivDrHUZ-E_qC4a9ra5daV8zGTFinlpwD6GMyMs16lN4idhSXdQ"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+<p class="text-xs font-bold text-amber-600 tracking-wider">STARTING IN 5M</p>
+</div>
+<h4 class="text-lg font-bold text-on-surface truncate">Glass Labyrinth</h4>
+<p class="text-on-surface-variant text-sm">12 players • 1.2km away</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant group-active:scale-90 transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Quick Map Peek -->
+<section class="bg-surface-container-low rounded-lg p-2 h-48 relative overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Map View" class="w-full h-full object-cover opacity-50 grayscale" data-alt="Stylized minimal city map with soft reddish and grey colors showing streets and park areas" data-location="Seattle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4w7SMAvcoS29agsvenv-8mvPcaWZ9xN_Z9jGObouLMqXVbXvozi2jqWcAeR5MOnukEA65TYeX9YVkhWA2qvxw3bIj9WXhpW-UHU7EaOMGX1W8FkCexLByo3HpD-PxeFl8SsbIY5FX_Ik0w9T2xWQCCf5N54FnNL3_uGz-zN7Ts9fJ4xrd8L0w05foIctxeN-awEfNgv5HOrnVHJn6RaE4xCbPFeNSm02CP19uOjfIsCNInZ5h2bkl1tLMagNlFHf_9uFfH5gh7ds"/>
+</div>
+<div class="relative z-10 w-full h-full flex flex-col items-center justify-center bg-white/40 backdrop-blur-sm rounded-lg border border-white/20">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white mb-2 shadow-xl animate-pulse">
+<span class="material-symbols-outlined" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<p class="text-on-surface font-bold">Explore Area</p>
+<p class="text-on-surface-variant text-xs">3 private hideouts nearby</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-24 bg-[#fff4f3]/80 dark:bg-stone-900/80 backdrop-blur-xl rounded-t-[3rem] shadow-[0_-20px_40px_rgba(78,33,32,0.04)] px-4 pb-6 pt-2">
+<!-- Explore (Active) -->
+<div class="flex flex-col items-center justify-center bg-[#ffe1df] dark:bg-[#a93000]/20 text-[#FC4C02] dark:text-[#ff784e] rounded-full px-6 py-2 active:scale-90 transition-transform duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="explore" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-extrabold uppercase tracking-widest">Explore</span>
+</div>
+<!-- Games -->
+<div class="flex flex-col items-center justify-center text-[#4e2120] dark:text-[#ffd2cf] opacity-60 px-6 py-2 hover:bg-[#ffedeb] dark:hover:bg-stone-800 rounded-full active:scale-90 transition-transform duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="sports_esports">sports_esports</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-extrabold uppercase tracking-widest">Games</span>
+</div>
+<!-- Map -->
+<div class="flex flex-col items-center justify-center text-[#4e2120] dark:text-[#ffd2cf] opacity-60 px-6 py-2 hover:bg-[#ffedeb] dark:hover:bg-stone-800 rounded-full active:scale-90 transition-transform duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-extrabold uppercase tracking-widest">Map</span>
+</div>
+<!-- Profile -->
+<div class="flex flex-col items-center justify-center text-[#4e2120] dark:text-[#ffd2cf] opacity-60 px-6 py-2 hover:bg-[#ffedeb] dark:hover:bg-stone-800 rounded-full active:scale-90 transition-transform duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-extrabold uppercase tracking-widest">Profile</span>
+</div>
+</nav>
+</body></html>

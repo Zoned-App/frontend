@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Zoned - Game Setup</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+
+
+    <link href="/src/style.css" rel="stylesheet" />
+    <script type="module" src="/src/main.ts"></script>
+    
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fff4f3] dark:bg-stone-950 flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<a href="/dashboard.html" class="text-[#FC4C02] dark:text-[#ff784e] hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</a>
+</div>
+<h1 class="text-2xl font-black italic tracking-tighter text-[#FC4C02] font-['Plus_Jakarta_Sans']">ZONED</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-surface-container-high">
+<img alt="User profile photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDF9_4NUenqUr2Rasj5pCS-Mb7J6hJGPx0F120kzbkvdWS1n70EuFdLhl24Gek8QeMxB6gACNaZNG6AzU4kGFeM-9SF_d7ibtmdqQ39pqJLF_cwqcLSzHM_AzAUtvqFFJPTMpvJkJh2pcWWE50Wd-NCytGlZZ5SNHexxmyHT1AFeZIUZ-vCtP5F-L9Ps4KHfJESAB0i4QBUMpRibs-SUlFNGX_bsMI6vOZT90UdMu5FiICspPkWhFzzeSMJrYkzCRWDWKqpwkGDvO4"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 pb-32 px-6 max-w-4xl mx-auto w-full flex flex-col">
+<section class="mb-12">
+<h2 class="text-[3.5rem] font-extrabold leading-[1.1] tracking-tight text-on-surface mb-4">
+                Ready or <br/><span class="text-primary italic">Not?</span>
+</h2>
+<p class="text-on-surface-variant text-lg max-w-xs leading-relaxed">
+                Choose your destiny for the upcoming match. Will you be the ghost or the hunter?
+            </p>
+</section>
+<!-- Role Selection Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+<!-- Hider Card -->
+<a href="/dashboard.html" class="group relative flex flex-col text-left rounded-xl bg-surface-container-lowest p-8 shadow-[0_8px_40px_rgba(36,26,25,0.04)] hover:shadow-[0_16px_64px_rgba(36,26,25,0.08)] transition-all duration-500 hover:-translate-y-2 border-none">
+<div class="w-full h-64 rounded-lg overflow-hidden mb-6 bg-surface-container-low">
+<img alt="Hider" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Atmospheric shot of a sunlit forest clearing with soft morning mist and dappled light hitting forest floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE7PA2SYcU1ZyTLHaPVINNn6neGTfNw3rBThxpTtXkZGBCvdGM9a6AKj5SzRhfTr5dhbDv7DN--KIIcIScs4xqaX5W5gD4PwRhoOd7QrELx_YbvA8iIj_Ay8y9vnGfxCd6RjRK9ER-16-t2UfislQW5iiK-tRBJAjaUL5xauT-sMRJgAD_eg03qJCWIR8PnDm_Q-rGYMcutHfGObW12OlSAZF-rzqCWclkfPPWErQBA3lRY4Bv4tIR63DGL7N8OCNkcg1mzpBeLbo"/>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<h3 class="text-2xl font-bold tracking-tight mb-1">Hider</h3>
+<p class="text-on-surface-variant body-lg">The art of invisibility.</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="visibility_off">visibility_off</span>
+</div>
+</div>
+<div class="mt-4 flex gap-2">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-[11px] font-bold tracking-wider text-on-surface-variant uppercase">Evasive</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-[11px] font-bold tracking-wider text-on-surface-variant uppercase">Tactical</span>
+</div>
+</a>
+<!-- Seeker Card -->
+<a href="/dashboard.html" class="group relative md:mt-12 flex flex-col text-left rounded-xl bg-surface-container-lowest p-8 shadow-[0_8px_40px_rgba(36,26,25,0.04)] hover:shadow-[0_16px_64px_rgba(36,26,25,0.08)] transition-all duration-500 hover:-translate-y-2 border-none">
+<div class="w-full h-64 rounded-lg overflow-hidden mb-6 bg-surface-container-low">
+<img alt="Seeker" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Moody silhouettes of children playing in a park at sunset with golden hour light flare and long shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjudu1nK86KEb47meHNiK_mHm4hyblzdmW7quwElHTsVhUVEjwGD0AB7ze5ZCU3wz5SQIbnf33m8vdrbLQDcu6K1PORbtm0hLTKgEusyYrAa_rxOdEDcSD-Nf3_8nAzR1n0W3wx-CN89eK-yd-XJ5dVOqq511qaom_Wan2Ju0Urs_-t2VQqodus6XYPTy3tcfiWSQWN_8Ttw3cDqnSNmoo4xIhhEkz55utppiaYS8ANGqpZoS3fJ3OiZnR8tI6tIVvRNVQzTQkxoQ"/>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<h3 class="text-2xl font-bold tracking-tight mb-1 text-primary">Seeker</h3>
+<p class="text-on-surface-variant body-lg">The thrill of the chase.</p>
+</div>
+<div class="w-12 h-12 rounded-full signature-gradient flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined" data-icon="radar">radar</span>
+</div>
+</div>
+<div class="mt-4 flex gap-2">
+<span class="px-3 py-1 rounded-full bg-primary-container text-[11px] font-bold tracking-wider text-primary uppercase">Tracker</span>
+<span class="px-3 py-1 rounded-full bg-primary-container text-[11px] font-bold tracking-wider text-primary uppercase">Fast</span>
+</div>
+</a>
+</div>
+<!-- Join Room Module -->
+<div class="bg-surface-container-low rounded-xl p-8 mb-12">
+<div class="flex flex-col md:flex-row items-center gap-6">
+<div class="flex-grow w-full">
+<label class="block text-sm font-bold text-on-surface-variant mb-3 px-1 uppercase tracking-widest">Join a Room</label>
+<div class="relative group">
+<input class="w-full h-16 bg-surface-container-highest border-none rounded-xl px-6 text-xl font-bold tracking-[0.2em] placeholder:tracking-normal placeholder:font-normal placeholder:text-on-surface-variant/50 focus:ring-4 focus:ring-primary/10 focus:bg-surface-container-lowest transition-all" placeholder="Enter 6-digit code" type="text"/>
+<div class="absolute right-4 top-1/2 -translate-y-1/2">
+<span class="material-symbols-outlined text-outline" data-icon="pin">pin</span>
+</div>
+</div>
+</div>
+<a href="/dashboard.html" class="w-full md:w-auto h-16 px-10 rounded-full signature-gradient text-white font-bold text-lg shadow-lg active:scale-95 transition-all">
+                    Join Room
+                </a>
+</div>
+<div class="mt-6 flex items-center justify-center md:justify-start gap-4">
+<div class="h-[1px] flex-grow bg-outline-variant/30 hidden md:block"></div>
+<p class="text-sm font-medium text-on-surface-variant">Or <a href="/dashboard.html" class="text-primary font-bold hover:underline">Host a new game</a></p>
+<div class="h-[1px] flex-grow bg-outline-variant/30 hidden md:block"></div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-24 bg-[#fff4f3]/80 dark:bg-stone-900/80 backdrop-blur-xl shadow-[0_-20px_40px_rgba(78,33,32,0.04)] rounded-t-[3rem]">
+<a class="flex flex-col items-center justify-center text-[#4e2120] dark:text-[#ffd2cf] opacity-60 px-6 py-2 hover:bg-[#ffedeb] dark:hover:bg-stone-800 rounded-full active:scale-90 transition-transform duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-extrabold uppercase tracking-widest mt-1">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#ffe1df] dark:bg-[#a93000]/20 text-[#FC4C02] rounded-full px-6 py-2 active:scale-90 transition-transform duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="sports_esports" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-extrabold uppercase tracking-widest mt-1">Games</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#4e2120] dark:text-[#ffd2cf] opacity-60 px-6 py-2 hover:bg-[#ffedeb] dark:hover:bg-stone-800 rounded-full active:scale-90 transition-transform duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-extrabold uppercase tracking-widest mt-1">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#4e2120] dark:text-[#ffd2cf] opacity-60 px-6 py-2 hover:bg-[#ffedeb] dark:hover:bg-stone-800 rounded-full active:scale-90 transition-transform duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-extrabold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Zoned | Active Game</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+
+
+    <link href="/src/style.css" rel="stylesheet" />
+    <script type="module" src="/src/main.ts"></script>
+    
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fff4f3] dark:bg-stone-950 backdrop-blur-xl shadow-[0_8px_32px_rgba(78,33,32,0.04)]">
+<div class="flex justify-between items-center w-full px-6 max-w-screen-xl mx-auto py-4">
+<div class="flex items-center space-x-2">
+<button class="active:scale-95 duration-200 transition-transform text-[#4e2120] dark:text-[#ffd2cf]">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<h1 class="text-2xl font-black italic tracking-tighter text-[#FC4C02]">ZONED</h1>
+<div class="active:scale-95 duration-200 transition-transform">
+<div class="w-10 h-10 rounded-full overflow-hidden ring-2 ring-[#FC4C02]/20">
+<img alt="User profile photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsEjF5UNtWCziym8sMIORU1L-x3r4Qb9gfLDpRUtOmIjngDtf5qeiINAZtxrxl-BkzIssJZlx6ne2OV2xuO4xE61qEbywxpQAdTsbvPdFxWEneP2DvSb_H13FfqEdBrU2uMGlyuLIeaF2QrjYJvN6kEec3kpiLYV5jHq3GcIOtCbBG8TmWCxVkOIelasx1zHitvUzQUfByhNRJBfTeE4-1-4B97ANf-29bpAjv_WnJUafCHmHDMqaEy4SybPXTRI-KZs5gDogKlVg"/>
+</div>
+</div>
+</div>
+</header>
+<main class="min-h-screen pt-20 pb-32 overflow-hidden relative">
+<!-- Main Map/Radar Canvas -->
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-surface-container-low relative">
+<img class="w-full h-full object-cover opacity-30 grayscale-[50%] blur-[2px]" data-alt="minimalist overhead map view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLhQet2avVw5i_KwGBEcNTZp1b7mgC97tcBn0LVN3qruHZNEM_NF__Y0EkJ0Uh21wUmcxWW9ndWhmRvG2143nHAfHFMTUb2i6Y2he0CuVU6E5c8dd-K6o3aKEQX8f6OLvuV3tOJqQLG35wI6y0eWaZ5is311VqkrLIlm6FrjiJVuIFb-n9P9zHvIUWN5EPEaHrzwZhlOuv4ViYWHOznwODlcpWGC3lilZSwRl4bDil6UBniqcJQ5nrvYQPqlF-v4WyuDoNGtlyhg4"/>
+<!-- Radar Overlay -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-[80vw] h-[80vw] max-w-[500px] max-h-[500px] rounded-full border border-primary/20 flex items-center justify-center">
+<div class="w-3/4 h-3/4 rounded-full border border-primary/10 flex items-center justify-center">
+<div class="w-1/2 h-1/2 rounded-full border border-primary/5"></div>
+</div>
+</div>
+<!-- Proximity Pulse -->
+<div class="absolute w-32 h-32 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+</div>
+<!-- Floating Player Dots -->
+<div class="absolute top-[35%] left-[45%] w-4 h-4 bg-primary rounded-full shadow-[0_0_20px_rgba(252,76,2,0.6)] z-10"></div>
+<div class="absolute top-[55%] left-[65%] w-3 h-3 bg-secondary rounded-full blur-[1px] opacity-80 z-10"></div>
+<div class="absolute top-[40%] left-[25%] w-3 h-3 bg-secondary rounded-full blur-[1px] opacity-60 z-10"></div>
+</div>
+</div>
+<!-- Floating Data Cards -->
+<div class="relative z-20 px-6 space-y-4">
+<!-- Status Row -->
+<div class="flex gap-4 items-start">
+<!-- Time Card -->
+<div class="flex-1 bg-white/80 backdrop-blur-2xl p-6 rounded-xl shadow-[0_8px_40px_rgba(78,33,32,0.06)] transform rotate-[-1deg]">
+<p class="text-label-sm font-semibold text-on-surface-variant mb-1 uppercase tracking-widest text-[10px]">Remaining</p>
+<div class="flex items-baseline space-x-1">
+<span class="text-4xl font-black text-on-surface tracking-tighter">04:22</span>
+<span class="text-primary font-bold">mins</span>
+</div>
+</div>
+<!-- Hiders Card -->
+<div class="flex-1 bg-white/80 backdrop-blur-2xl p-6 rounded-xl shadow-[0_8px_40px_rgba(78,33,32,0.06)] transform rotate-[2deg]">
+<p class="text-label-sm font-semibold text-on-surface-variant mb-1 uppercase tracking-widest text-[10px]">Hiders Left</p>
+<div class="flex items-center space-x-3">
+<span class="text-4xl font-black text-on-surface tracking-tighter">03</span>
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-white overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="avatar 1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpJs3Z3fFxPgvsT2Spd8sBjX7ZrZIuwlCa7d1Ehe2RsYuKkezJowv7_GthHJhC56pp3tebSZ7oVVrwAQlivB_481VBItMqDVb_b1lPjgYYnzp1-Wxkug1ujpHAEI8XS4cOwJQGRRADJB4EV7GnCqipTWMhmEOmtPAEucHzDeVUZVrPqn4JCauMKnTctBzTgEQhUPsfTe7G8Iz9KoN0z-iG9ahC6iyljS3r8Ss7UAe7CPqRHd6F6rCmAGGzcOWEZ6IlXWNQRORmlso"/>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-white overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="avatar 2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0GbVyZywSn8cem4kW2x-y7HQk7VuIR1S_gE5SKCj6zIZlkF41BxZb2yBJhqpD0lBn0Zl11V6DhIMBKoCRrzbJal-6EFYp-FigE3Imt93mrnUIJBpmYJjstnij7y9qdNl2MBXX9KyG74hnKghlVECny4eOBAlA_-kAZfdE7xw9eTlhQMGiab4EoFCi-xFB6I8CFEWoMDwhT6LceLdNwNurZywj02NQxTbVzorXWl7Py5l2axSIgSvfsuieOSEGfAhYEPtgoQLm8Tc"/>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-surface-container-highest flex items-center justify-center">
+<span class="text-[8px] font-bold text-on-surface-variant">+1</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Proximity Heat Indicator -->
+<div class="max-w-[200px] ml-auto">
+<div class="bg-gradient-to-br from-white/90 to-white/50 backdrop-blur-xl p-4 rounded-xl shadow-lg border border-white/20">
+<div class="flex items-center space-x-3 mb-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">sensors</span>
+<span class="text-xs font-bold text-on-surface uppercase tracking-tight">Proximity</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-3/4 rounded-full"></div>
+</div>
+<p class="mt-2 text-[11px] font-medium text-on-surface-variant leading-tight">Getting warmer! Someone is within 20 meters.</p>
+</div>
+</div>
+<!-- Focus Content Center -->
+<div class="pt-20 flex flex-col items-center">
+<div class="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-primary-fixed flex items-center justify-center shadow-[0_16px_48px_rgba(252,76,2,0.3)] animate-pulse border-4 border-white/40">
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'wght' 600;">radar</span>
+</div>
+<h2 class="mt-6 text-xl font-bold text-on-surface tracking-tight">Hunting Mode</h2>
+<p class="text-on-surface-variant text-sm font-medium">Keep moving to update radar</p>
+</div>
+</div>
+<!-- Peek Drawer -->
+<div class="fixed bottom-[104px] left-0 w-full px-6 z-40">
+<div class="bg-white/80 backdrop-blur-2xl rounded-xl p-6 shadow-[0_-8px_40px_rgba(78,33,32,0.1)]">
+<div class="w-12 h-1 bg-surface-variant rounded-full mx-auto mb-4"></div>
+<div class="flex items-center justify-between">
+<div>
+<h3 class="text-sm font-bold text-on-surface">Found Someone?</h3>
+<p class="text-xs text-on-surface-variant">Tap once they are in sight</p>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-fixed text-white px-6 py-3 rounded-full font-bold text-sm shadow-md active:scale-95 transition-all">
+                    TAG HIDERS
+                </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-24 bg-[#fff4f3]/80 dark:bg-stone-900/80 backdrop-blur-xl rounded-t-[3rem] px-4 pb-6 pt-2 shadow-[0_-20px_40px_rgba(78,33,32,0.04)]">
+<a class="flex flex-col items-center justify-center text-[#4e2120] dark:text-[#ffd2cf] opacity-60 px-6 py-2 hover:bg-[#ffedeb] dark:hover:bg-stone-800 rounded-full active:scale-90 transition-transform duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-extrabold uppercase tracking-widest">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#ffe1df] dark:bg-[#a93000]/20 text-[#FC4C02] rounded-full px-6 py-2 active:scale-90 transition-transform duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-extrabold uppercase tracking-widest">Games</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#4e2120] dark:text-[#ffd2cf] opacity-60 px-6 py-2 hover:bg-[#ffedeb] dark:hover:bg-stone-800 rounded-full active:scale-90 transition-transform duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-extrabold uppercase tracking-widest">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#4e2120] dark:text-[#ffd2cf] opacity-60 px-6 py-2 hover:bg-[#ffedeb] dark:hover:bg-stone-800 rounded-full active:scale-90 transition-transform duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-extrabold uppercase tracking-widest">Profile</span>
+</a>
+</nav>
+</body></html>
