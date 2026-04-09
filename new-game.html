@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Zoned | New Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="/src/style.css" rel="stylesheet" />
+    <script type="module" src="/src/main.ts"></script>
+    <style>
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up {
+            animation: fadeUp 0.45s ease forwards;
+            opacity: 0;
+        }
+        .fade-up:nth-child(1) { animation-delay: 0.05s; }
+        .fade-up:nth-child(2) { animation-delay: 0.1s; }
+        .fade-up:nth-child(3) { animation-delay: 0.15s; }
+        .fade-up:nth-child(4) { animation-delay: 0.2s; }
+        .fade-up:nth-child(5) { animation-delay: 0.25s; }
+        .fade-up:nth-child(6) { animation-delay: 0.3s; }
+        .fade-up:nth-child(7) { animation-delay: 0.35s; }
+
+        /* Custom range slider */
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 999px;
+            background: #e4e9ef;
+            outline: none;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #006592;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 101, 146, 0.3);
+            transition: transform 0.15s ease;
+        }
+        input[type="range"]::-webkit-slider-thumb:active {
+            transform: scale(1.2);
+        }
+
+        /* Toggle switch */
+        .toggle-switch {
+            position: relative;
+            width: 52px;
+            height: 30px;
+            flex-shrink: 0;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            inset: 0;
+            background: #dde3eb;
+            border-radius: 999px;
+            transition: 0.3s;
+        }
+        .toggle-slider::before {
+            content: '';
+            position: absolute;
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background: white;
+            border-radius: 50%;
+            transition: 0.3s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+        }
+        .toggle-switch input:checked + .toggle-slider {
+            background: #006592;
+        }
+        .toggle-switch input:checked + .toggle-slider::before {
+            transform: translateX(22px);
+        }
+
+        /* Game mode card radio */
+        .mode-card {
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .mode-card:has(input:checked) {
+            border-color: #006592;
+            background: #f0f7fc;
+            box-shadow: 0 0 0 2px #006592, 0 8px 32px rgba(0, 101, 146, 0.08);
+        }
+        .mode-card:has(input:checked) .mode-icon {
+            background: linear-gradient(135deg, #006592 0%, #5dbffe 100%);
+            color: white;
+        }
+        .mode-card input { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-52">
+    <!-- TopAppBar with back navigation -->
+    <header class="fixed top-0 w-full z-50 bg-[#fff4f3] dark:bg-stone-950 px-6 py-4 flex justify-between items-center">
+        <a href="/games.html" class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center hover:bg-surface-container-high transition-colors active:scale-90 duration-200">
+            <span class="material-symbols-outlined text-on-surface">arrow_back</span>
+        </a>
+        <h1 class="text-lg font-bold tracking-tight text-on-surface">New Game</h1>
+        <div class="w-10 h-10"></div><!-- spacer -->
+    </header>
+
+    <main class="pt-24 px-6 space-y-8 max-w-2xl mx-auto">
+
+        <!-- Hero Section -->
+        <section class="fade-up">
+            <div class="relative signature-gradient rounded-2xl p-8 overflow-hidden">
+                <div class="absolute -top-8 -right-8 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full blur-2xl"></div>
+                <div class="relative z-10 text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center mx-auto mb-4">
+                        <span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'wght' 600, 'FILL' 1;">add_location_alt</span>
+                    </div>
+                    <h2 class="text-2xl font-extrabold text-white">Create Your Hunt</h2>
+                    <p class="text-white/70 text-sm mt-1">Configure the game and invite players</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Name -->
+        <section class="space-y-3 fade-up">
+            <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest px-1">Game Name</label>
+            <div class="relative group">
+                <input id="game-name" type="text" placeholder="e.g. Shadow Grove Showdown" class="w-full h-14 bg-surface-container-lowest border-2 border-surface-container-high rounded-xl px-5 text-base font-semibold text-on-surface placeholder:text-on-surface-variant/40 focus:border-primary focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all outline-none" />
+                <span class="absolute right-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-lg">edit</span>
+            </div>
+        </section>
+
+        <!-- Game Mode -->
+        <section class="space-y-3 fade-up">
+            <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest px-1">Game Mode</label>
+            <div class="grid grid-cols-2 gap-3">
+                <label class="mode-card bg-surface-container-lowest border-2 border-surface-container-high rounded-xl p-5 flex flex-col items-center gap-3">
+                    <input type="radio" name="gameMode" value="classic" checked />
+                    <div class="mode-icon w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center transition-all">
+                        <span class="material-symbols-outlined text-on-surface-variant text-2xl">visibility_off</span>
+                    </div>
+                    <div class="text-center">
+                        <p class="font-bold text-sm text-on-surface">Classic</p>
+                        <p class="text-[11px] text-on-surface-variant mt-0.5">Hide & Seek</p>
+                    </div>
+                </label>
+                <label class="mode-card bg-surface-container-lowest border-2 border-surface-container-high rounded-xl p-5 flex flex-col items-center gap-3">
+                    <input type="radio" name="gameMode" value="zones" />
+                    <div class="mode-icon w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center transition-all">
+                        <span class="material-symbols-outlined text-on-surface-variant text-2xl">pin_drop</span>
+                    </div>
+                    <div class="text-center">
+                        <p class="font-bold text-sm text-on-surface">Zones</p>
+                        <p class="text-[11px] text-on-surface-variant mt-0.5">Capture Points</p>
+                    </div>
+                </label>
+            </div>
+        </section>
+
+        <!-- Player Count -->
+        <section class="space-y-3 fade-up">
+            <div class="flex items-center justify-between px-1">
+                <label class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Max Players</label>
+                <span id="player-count-display" class="text-lg font-black text-primary">10</span>
+            </div>
+            <input type="range" id="player-count" min="2" max="20" value="10" class="w-full" />
+            <div class="flex justify-between text-[10px] text-on-surface-variant font-semibold px-1">
+                <span>2</span>
+                <span>20</span>
+            </div>
+        </section>
+
+        <!-- Game Duration -->
+        <section class="space-y-3 fade-up">
+            <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest px-1">Duration</label>
+            <div class="grid grid-cols-3 gap-2">
+                <button onclick="selectDuration(this, 5)" class="duration-btn px-4 py-3 rounded-xl bg-surface-container-low text-on-surface-variant text-sm font-bold hover:bg-surface-container-high transition-colors text-center">5 min</button>
+                <button onclick="selectDuration(this, 10)" class="duration-btn px-4 py-3 rounded-xl bg-primary text-on-primary text-sm font-bold shadow-md text-center">10 min</button>
+                <button onclick="selectDuration(this, 15)" class="duration-btn px-4 py-3 rounded-xl bg-surface-container-low text-on-surface-variant text-sm font-bold hover:bg-surface-container-high transition-colors text-center">15 min</button>
+                <button onclick="selectDuration(this, 20)" class="duration-btn px-4 py-3 rounded-xl bg-surface-container-low text-on-surface-variant text-sm font-bold hover:bg-surface-container-high transition-colors text-center">20 min</button>
+                <button onclick="selectDuration(this, 30)" class="duration-btn px-4 py-3 rounded-xl bg-surface-container-low text-on-surface-variant text-sm font-bold hover:bg-surface-container-high transition-colors text-center">30 min</button>
+                <button onclick="selectDuration(this, 60)" class="duration-btn px-4 py-3 rounded-xl bg-surface-container-low text-on-surface-variant text-sm font-bold hover:bg-surface-container-high transition-colors text-center">1 hr</button>
+            </div>
+        </section>
+
+        <!-- Game Radius -->
+        <section class="space-y-3 fade-up">
+            <div class="flex items-center justify-between px-1">
+                <label class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Play Radius</label>
+                <span id="radius-display" class="text-lg font-black text-primary">500m</span>
+            </div>
+            <input type="range" id="radius-slider" min="100" max="2000" value="500" step="50" class="w-full" />
+            <div class="flex justify-between text-[10px] text-on-surface-variant font-semibold px-1">
+                <span>100m</span>
+                <span>2km</span>
+            </div>
+        </section>
+
+        <!-- Settings Toggles -->
+        <section class="space-y-1 fade-up">
+            <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest px-1 mb-3">Settings</label>
+
+            <!-- Toggle 1 -->
+            <div class="bg-surface-container-lowest rounded-xl p-5 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-on-surface-variant">public</span>
+                    <div>
+                        <p class="text-sm font-bold text-on-surface">Public Game</p>
+                        <p class="text-xs text-on-surface-variant">Anyone nearby can join</p>
+                    </div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked />
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <!-- Toggle 2 -->
+            <div class="bg-surface-container-lowest rounded-xl p-5 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-on-surface-variant">radar</span>
+                    <div>
+                        <p class="text-sm font-bold text-on-surface">Proximity Radar</p>
+                        <p class="text-xs text-on-surface-variant">Show warm/cold hints</p>
+                    </div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked />
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <!-- Toggle 3 -->
+            <div class="bg-surface-container-lowest rounded-xl p-5 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-on-surface-variant">timer</span>
+                    <div>
+                        <p class="text-sm font-bold text-on-surface">Hiding Phase</p>
+                        <p class="text-xs text-on-surface-variant">60s head-start for hiders</p>
+                    </div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked />
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </section>
+
+        <!-- Invite Code Preview -->
+        <section class="fade-up">
+            <div class="bg-surface-container-low rounded-xl p-6 text-center space-y-3">
+                <p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Share Code</p>
+                <div class="flex items-center justify-center gap-2">
+                    <p id="invite-code" class="text-3xl font-black text-on-surface tracking-[0.3em] font-mono">— — — —</p>
+                </div>
+                <p class="text-xs text-on-surface-variant">Code generates when you start the game</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Sticky Create Button -->
+    <div class="fixed bottom-28 left-0 w-full px-6 z-40">
+        <a href="/role-selection.html" class="block w-full max-w-2xl mx-auto signature-gradient text-white py-4 rounded-2xl font-bold text-center text-lg shadow-[0_16px_48px_rgba(0,101,146,0.3)] active:scale-[0.97] transition-all duration-200 hover:shadow-[0_20px_56px_rgba(0,101,146,0.4)]">
+            Create Game
+        </a>
+    </div>
+
+    <!-- BottomNavBar -->
+    <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-24 bg-[#fff4f3]/80 dark:bg-stone-900/80 backdrop-blur-xl rounded-t-[3rem] shadow-[0_-20px_40px_rgba(78,33,32,0.04)] px-4 pb-6 pt-2">
+        <!-- Explore -->
+        <a href="/dashboard.html" class="flex flex-col items-center justify-center text-[#4e2120] dark:text-[#ffd2cf] opacity-60 px-6 py-2 hover:bg-[#ffedeb] dark:hover:bg-stone-800 rounded-full active:scale-90 transition-transform duration-300 ease-out">
+            <span class="material-symbols-outlined" data-icon="explore">explore</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-extrabold uppercase tracking-widest">Explore</span>
+        </a>
+        <!-- Games (Active) -->
+        <a href="/games.html" class="flex flex-col items-center justify-center bg-[#ffe1df] dark:bg-[#a93000]/20 text-[#FC4C02] dark:text-[#ff784e] rounded-full px-6 py-2 active:scale-90 transition-transform duration-300 ease-out">
+            <span class="material-symbols-outlined" data-icon="sports_esports" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-extrabold uppercase tracking-widest">Games</span>
+        </a>
+        <!-- Map -->
+        <a href="/map.html" class="flex flex-col items-center justify-center text-[#4e2120] dark:text-[#ffd2cf] opacity-60 px-6 py-2 hover:bg-[#ffedeb] dark:hover:bg-stone-800 rounded-full active:scale-90 transition-transform duration-300 ease-out">
+            <span class="material-symbols-outlined" data-icon="map">map</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-extrabold uppercase tracking-widest">Map</span>
+        </a>
+        <!-- Profile -->
+        <a href="/profile.html" class="flex flex-col items-center justify-center text-[#4e2120] dark:text-[#ffd2cf] opacity-60 px-6 py-2 hover:bg-[#ffedeb] dark:hover:bg-stone-800 rounded-full active:scale-90 transition-transform duration-300 ease-out">
+            <span class="material-symbols-outlined" data-icon="person">person</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-extrabold uppercase tracking-widest">Profile</span>
+        </a>
+    </nav>
+
+    <script>
+        // Player count slider
+        const playerSlider = document.getElementById('player-count');
+        const playerDisplay = document.getElementById('player-count-display');
+        playerSlider.addEventListener('input', () => {
+            playerDisplay.textContent = playerSlider.value;
+        });
+
+        // Radius slider
+        const radiusSlider = document.getElementById('radius-slider');
+        const radiusDisplay = document.getElementById('radius-display');
+        radiusSlider.addEventListener('input', () => {
+            const val = parseInt(radiusSlider.value);
+            radiusDisplay.textContent = val >= 1000 ? (val / 1000).toFixed(1) + 'km' : val + 'm';
+        });
+
+        // Duration selection
+        function selectDuration(el, mins) {
+            document.querySelectorAll('.duration-btn').forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-on-primary', 'shadow-md');
+                btn.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+            });
+            el.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+            el.classList.add('bg-primary', 'text-on-primary', 'shadow-md');
+        }
+    </script>
+</body>
+</html>

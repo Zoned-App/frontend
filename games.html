@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Zoned | Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="/src/style.css" rel="stylesheet" />
+    <script type="module" src="/src/main.ts"></script>
+    <style>
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up {
+            animation: fadeUp 0.5s ease forwards;
+            opacity: 0;
+        }
+        .fade-up:nth-child(1) { animation-delay: 0.05s; }
+        .fade-up:nth-child(2) { animation-delay: 0.1s; }
+        .fade-up:nth-child(3) { animation-delay: 0.15s; }
+        .fade-up:nth-child(4) { animation-delay: 0.2s; }
+        .fade-up:nth-child(5) { animation-delay: 0.25s; }
+        .fade-up:nth-child(6) { animation-delay: 0.3s; }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .live-dot {
+            position: relative;
+        }
+        .live-dot::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 9999px;
+            background: inherit;
+            opacity: 0.4;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(2); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+    <!-- TopAppBar -->
+    <header class="fixed top-0 w-full z-50 bg-[#fff4f3] dark:bg-stone-950 px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-3"></div>
+        <h1 class="text-2xl font-black italic tracking-tighter text-[#FC4C02]">ZONED</h1>
+        <a href="/profile.html" class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high ring-2 ring-[#FC4C02]/10 block">
+            <img alt="User profile photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC27_Sx5jTVdwYPW--U290q3lEo6JWphHGEHWq6L0072Be6mBK5zH1QDwYexeLtvIxNzD-pm7o8Y1yuK3ekrExOaZ9AKgm3BpqOwDNRAmM3rW_PBUQjx0cFp6PPdKO_MRNaHenQQlITr1ly7f4eQNpAQ0L9yoM3_rY9IQLF3lW1u210lFI3tyBNSOAn4ZTeUo1c6rEmF1svCXF1nG5EhwZxMZ3L7TpZ4LCRP-mDDEEMm5ZExcDlzxi15ObI368g-1gERBF_YVErf0Y"/>
+        </a>
+    </header>
+
+    <main class="pt-24 px-6 space-y-8 max-w-2xl mx-auto">
+
+        <!-- Page Header -->
+        <section class="space-y-2 fade-up">
+            <p class="text-on-surface-variant font-medium tracking-wide text-xs uppercase">YOUR AREA</p>
+            <h2 class="text-4xl font-extrabold text-on-surface leading-tight tracking-tight">Nearby Games</h2>
+        </section>
+
+        <!-- New Game CTA -->
+        <section class="fade-up">
+            <a href="/new-game.html" class="relative block signature-gradient rounded-xl p-6 shadow-[0_16px_64px_rgba(0,101,146,0.2)] transform transition-all duration-300 active:scale-[0.97] hover:shadow-[0_20px_72px_rgba(0,101,146,0.3)] group overflow-hidden">
+                <div class="absolute -top-6 -right-6 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:w-40 group-hover:h-40 transition-all duration-500"></div>
+                <div class="absolute bottom-0 right-4 w-20 h-20 bg-white/5 rounded-full blur-xl"></div>
+                <div class="relative z-10 flex items-center gap-5">
+                    <div class="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'wght' 600;">add_circle</span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-white text-xl font-bold">Create New Game</h3>
+                        <p class="text-white/70 text-sm mt-0.5">Set up a match and invite players nearby</p>
+                    </div>
+                    <span class="material-symbols-outlined text-white/50 group-hover:text-white group-hover:translate-x-1 transition-all">arrow_forward</span>
+                </div>
+            </a>
+        </section>
+
+        <!-- Filter Chips -->
+        <section class="flex gap-2 overflow-x-auto pb-1 -mx-1 px-1 scrollbar-hide fade-up">
+            <button class="px-5 py-2.5 rounded-full bg-primary text-on-primary text-xs font-bold tracking-wider uppercase whitespace-nowrap shadow-md">All</button>
+            <button class="px-5 py-2.5 rounded-full bg-surface-container-low text-on-surface-variant text-xs font-bold tracking-wider uppercase whitespace-nowrap hover:bg-surface-container-high transition-colors">Live Now</button>
+            <button class="px-5 py-2.5 rounded-full bg-surface-container-low text-on-surface-variant text-xs font-bold tracking-wider uppercase whitespace-nowrap hover:bg-surface-container-high transition-colors">Starting Soon</button>
+            <button class="px-5 py-2.5 rounded-full bg-surface-container-low text-on-surface-variant text-xs font-bold tracking-wider uppercase whitespace-nowrap hover:bg-surface-container-high transition-colors">Open Invite</button>
+        </section>
+
+        <!-- Live Games Section -->
+        <section class="space-y-4 fade-up">
+            <div class="flex items-center gap-2 px-1">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 live-dot"></span>
+                <h3 class="text-sm font-bold text-on-surface uppercase tracking-widest">Live Now</h3>
+                <span class="text-xs text-on-surface-variant font-semibold ml-auto">3 games</span>
+            </div>
+
+            <!-- Game Card 1 -->
+            <a href="/active-game.html" class="bg-surface-container-lowest rounded-xl p-5 flex items-center gap-4 shadow-[0_8px_32px_rgba(35,26,25,0.03)] group hover:shadow-[0_12px_48px_rgba(35,26,25,0.06)] transition-all duration-300 block">
+                <div class="w-20 h-20 rounded-xl overflow-hidden bg-surface-container-high flex-shrink-0">
+                    <img alt="Forest Location" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdpKslScXtWdUDMkcwNysOGL9zQHHuhmfVVfLKMBSM3takN5xE08ntSOK3wbsrhX8laA15shJqpxymxvt8plDreKH-wZpvCmAuyxQCIhAAul-Cyxw5dRCdOtaAcqkoAiZPxhvDWOiFjZ0lkkQkETFQ9glGzAmOqmlkVfLYKd78hLpAdzSvZy55-QY8HL_ga40c-S-LWnL2ePU0UHvjA_bQlFcAjNDdPKXX43c8S2Owq98rbJm9I4QYaWYMZ4uFUc8ColWteV8W-30"/>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                        <p class="text-[10px] font-bold text-emerald-600 tracking-wider uppercase">Live — 04:22 left</p>
+                    </div>
+                    <h4 class="text-lg font-bold text-on-surface truncate">Shadow Grove Park</h4>
+                    <p class="text-on-surface-variant text-sm">8 players · 400m away</p>
+                    <div class="flex items-center gap-1.5 mt-2">
+                        <div class="flex -space-x-1.5">
+                            <div class="w-5 h-5 rounded-full border-2 border-white overflow-hidden"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpJs3Z3fFxPgvsT2Spd8sBjX7ZrZIuwlCa7d1Ehe2RsYuKkezJowv7_GthHJhC56pp3tebSZ7oVVrwAQlivB_481VBItMqDVb_b1lPjgYYnzp1-Wxkug1ujpHAEI8XS4cOwJQGRRADJB4EV7GnCqipTWMhmEOmtPAEucHzDeVUZVrPqn4JCauMKnTctBzTgEQhUPsfTe7G8Iz9KoN0z-iG9ahC6iyljS3r8Ss7UAe7CPqRHd6F6rCmAGGzcOWEZ6IlXWNQRORmlso" alt="player"/></div>
+                            <div class="w-5 h-5 rounded-full border-2 border-white overflow-hidden"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0GbVyZywSn8cem4kW2x-y7HQk7VuIR1S_gE5SKCj6zIZlkF41BxZb2yBJhqpD0lBn0Zl11V6DhIMBKoCRrzbJal-6EFYp-FigE3Imt93mrnUIJBpmYJjstnij7y9qdNl2MBXX9KyG74hnKghlVECny4eOBAlA_-kAZfdE7xw9eTlhQMGiab4EoFCi-xFB6I8CFEWoMDwhT6LceLdNwNurZywj02NQxTbVzorXWl7Py5l2axSIgSvfsuieOSEGfAhYEPtgoQLm8Tc" alt="player"/></div>
+                            <div class="w-5 h-5 rounded-full border-2 border-white bg-surface-container-highest flex items-center justify-center"><span class="text-[7px] font-bold text-on-surface-variant">+6</span></div>
+                        </div>
+                        <span class="text-[10px] text-on-surface-variant font-semibold">3 seekers · 5 hiders</span>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary group-hover:translate-x-0.5 transition-all">chevron_right</span>
+            </a>
+
+            <!-- Game Card 2 -->
+            <a href="/active-game.html" class="bg-surface-container-lowest rounded-xl p-5 flex items-center gap-4 shadow-[0_8px_32px_rgba(35,26,25,0.03)] group hover:shadow-[0_12px_48px_rgba(35,26,25,0.06)] transition-all duration-300 block">
+                <div class="w-20 h-20 rounded-xl overflow-hidden bg-surface-container-high flex-shrink-0">
+                    <img alt="Urban Location" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGKZDzAJLyR_kXxrNxDcEW4LstW4RdHwn5kSVq8Mn7ir9kvcuX1zWIgf7RQ6dcchnHbJaVB27GkXu3IyLo35IzlgDNteheoJgq0zxHhUlGjpxRM7rmsOEpmNqXIbnZfcvqIMOEKGYIA8PrwgM7TuOt-Uw2t9ORPSZIdvnDJj0hKL7TbQOAwUYdN7aLGh3vL1FyruDL5r7vgtzw8kE2-OADuTJRKivDrHUZ-E_qC4a9ra5daV8zGTFinlpwD6GMyMs16lN4idhSXdQ"/>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                        <p class="text-[10px] font-bold text-emerald-600 tracking-wider uppercase">Live — 12:05 left</p>
+                    </div>
+                    <h4 class="text-lg font-bold text-on-surface truncate">Glass Labyrinth</h4>
+                    <p class="text-on-surface-variant text-sm">12 players · 1.2km away</p>
+                    <div class="flex items-center gap-1.5 mt-2">
+                        <div class="flex -space-x-1.5">
+                            <div class="w-5 h-5 rounded-full border-2 border-white overflow-hidden"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsEjF5UNtWCziym8sMIORU1L-x3r4Qb9gfLDpRUtOmIjngDtf5qeiINAZtxrxl-BkzIssJZlx6ne2OV2xuO4xE61qEbywxpQAdTsbvPdFxWEneP2DvSb_H13FfqEdBrU2uMGlyuLIeaF2QrjYJvN6kEec3kpiLYV5jHq3GcIOtCbBG8TmWCxVkOIelasx1zHitvUzQUfByhNRJBfTeE4-1-4B97ANf-29bpAjv_WnJUafCHmHDMqaEy4SybPXTRI-KZs5gDogKlVg" alt="player"/></div>
+                            <div class="w-5 h-5 rounded-full border-2 border-white bg-surface-container-highest flex items-center justify-center"><span class="text-[7px] font-bold text-on-surface-variant">+11</span></div>
+                        </div>
+                        <span class="text-[10px] text-on-surface-variant font-semibold">4 seekers · 8 hiders</span>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary group-hover:translate-x-0.5 transition-all">chevron_right</span>
+            </a>
+
+            <!-- Game Card 3 -->
+            <a href="/active-game.html" class="bg-surface-container-lowest rounded-xl p-5 flex items-center gap-4 shadow-[0_8px_32px_rgba(35,26,25,0.03)] group hover:shadow-[0_12px_48px_rgba(35,26,25,0.06)] transition-all duration-300 block">
+                <div class="w-20 h-20 rounded-xl overflow-hidden bg-surface-container-high flex-shrink-0 relative">
+                    <img alt="Campus Location" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE7PA2SYcU1ZyTLHaPVINNn6neGTfNw3rBThxpTtXkZGBCvdGM9a6AKj5SzRhfTr5dhbDv7DN--KIIcIScs4xqaX5W5gD4PwRhoOd7QrELx_YbvA8iIj_Ay8y9vnGfxCd6RjRK9ER-16-t2UfislQW5iiK-tRBJAjaUL5xauT-sMRJgAD_eg03qJCWIR8PnDm_Q-rGYMcutHfGObW12OlSAZF-rzqCWclkfPPWErQBA3lRY4Bv4tIR63DGL7N8OCNkcg1mzpBeLbo"/>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                        <p class="text-[10px] font-bold text-emerald-600 tracking-wider uppercase">Live — 08:30 left</p>
+                    </div>
+                    <h4 class="text-lg font-bold text-on-surface truncate">Elm Creek Trail</h4>
+                    <p class="text-on-surface-variant text-sm">5 players · 800m away</p>
+                    <div class="flex items-center gap-1.5 mt-2">
+                        <div class="flex -space-x-1.5">
+                            <div class="w-5 h-5 rounded-full border-2 border-white overflow-hidden"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpJs3Z3fFxPgvsT2Spd8sBjX7ZrZIuwlCa7d1Ehe2RsYuKkezJowv7_GthHJhC56pp3tebSZ7oVVrwAQlivB_481VBItMqDVb_b1lPjgYYnzp1-Wxkug1ujpHAEI8XS4cOwJQGRRADJB4EV7GnCqipTWMhmEOmtPAEucHzDeVUZVrPqn4JCauMKnTctBzTgEQhUPsfTe7G8Iz9KoN0z-iG9ahC6iyljS3r8Ss7UAe7CPqRHd6F6rCmAGGzcOWEZ6IlXWNQRORmlso" alt="player"/></div>
+                            <div class="w-5 h-5 rounded-full border-2 border-white bg-surface-container-highest flex items-center justify-center"><span class="text-[7px] font-bold text-on-surface-variant">+4</span></div>
+                        </div>
+                        <span class="text-[10px] text-on-surface-variant font-semibold">2 seekers · 3 hiders</span>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary group-hover:translate-x-0.5 transition-all">chevron_right</span>
+            </a>
+        </section>
+
+        <!-- Starting Soon Section -->
+        <section class="space-y-4 fade-up">
+            <div class="flex items-center gap-2 px-1">
+                <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                <h3 class="text-sm font-bold text-on-surface uppercase tracking-widest">Starting Soon</h3>
+                <span class="text-xs text-on-surface-variant font-semibold ml-auto">2 games</span>
+            </div>
+
+            <!-- Starting Soon Card 1 -->
+            <a href="/role-selection.html" class="bg-surface-container-lowest rounded-xl p-5 flex items-center gap-4 shadow-[0_8px_32px_rgba(35,26,25,0.03)] group hover:shadow-[0_12px_48px_rgba(35,26,25,0.06)] transition-all duration-300 block">
+                <div class="w-20 h-20 rounded-xl overflow-hidden bg-surface-container-high flex-shrink-0">
+                    <img alt="Park Location" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjudu1nK86KEb47meHNiK_mHm4hyblzdmW7quwElHTsVhUVEjwGD0AB7ze5ZCU3wz5SQIbnf33m8vdrbLQDcu6K1PORbtm0hLTKgEusyYrAa_rxOdEDcSD-Nf3_8nAzR1n0W3wx-CN89eK-yd-XJ5dVOqq511qaom_Wan2Ju0Urs_-t2VQqodus6XYPTy3tcfiWSQWN_8Ttw3cDqnSNmoo4xIhhEkz55utppiaYS8ANGqpZoS3fJ3OiZnR8tI6tIVvRNVQzTQkxoQ"/>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                        <p class="text-[10px] font-bold text-amber-600 tracking-wider uppercase">Starting in 5 min</p>
+                    </div>
+                    <h4 class="text-lg font-bold text-on-surface truncate">Sunset Ridge</h4>
+                    <p class="text-on-surface-variant text-sm">6/10 players · 600m away</p>
+                    <div class="mt-2 flex items-center gap-2">
+                        <div class="flex-1 h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+                            <div class="h-full bg-amber-500 rounded-full" style="width: 60%"></div>
+                        </div>
+                        <span class="text-[10px] text-amber-600 font-bold">6/10</span>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center gap-1.5">
+                    <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-[10px] font-bold uppercase tracking-wider">Join</span>
+                </div>
+            </a>
+
+            <!-- Starting Soon Card 2 -->
+            <a href="/role-selection.html" class="bg-surface-container-lowest rounded-xl p-5 flex items-center gap-4 shadow-[0_8px_32px_rgba(35,26,25,0.03)] group hover:shadow-[0_12px_48px_rgba(35,26,25,0.06)] transition-all duration-300 block">
+                <div class="w-20 h-20 rounded-xl overflow-hidden bg-surface-container-high flex-shrink-0">
+                    <img alt="Downtown Location" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLhQet2avVw5i_KwGBEcNTZp1b7mgC97tcBn0LVN3qruHZNEM_NF__Y0EkJ0Uh21wUmcxWW9ndWhmRvG2143nHAfHFMTUb2i6Y2he0CuVU6E5c8dd-K6o3aKEQX8f6OLvuV3tOJqQLG35wI6y0eWaZ5is311VqkrLIlm6FrjiJVuIFb-n9P9zHvIUWN5EPEaHrzwZhlOuv4ViYWHOznwODlcpWGC3lilZSwRl4bDil6UBniqcJQ5nrvYQPqlF-v4WyuDoNGtlyhg4"/>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                        <p class="text-[10px] font-bold text-amber-600 tracking-wider uppercase">Starting in 12 min</p>
+                    </div>
+                    <h4 class="text-lg font-bold text-on-surface truncate">Market Square</h4>
+                    <p class="text-on-surface-variant text-sm">3/8 players · 1.5km away</p>
+                    <div class="mt-2 flex items-center gap-2">
+                        <div class="flex-1 h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+                            <div class="h-full bg-amber-500 rounded-full" style="width: 37.5%"></div>
+                        </div>
+                        <span class="text-[10px] text-amber-600 font-bold">3/8</span>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center gap-1.5">
+                    <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-[10px] font-bold uppercase tracking-wider">Join</span>
+                </div>
+            </a>
+        </section>
+
+    </main>
+
+    <!-- BottomNavBar -->
+    <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-24 bg-[#fff4f3]/80 dark:bg-stone-900/80 backdrop-blur-xl rounded-t-[3rem] shadow-[0_-20px_40px_rgba(78,33,32,0.04)] px-4 pb-6 pt-2">
+        <!-- Explore -->
+        <a href="/dashboard.html" class="flex flex-col items-center justify-center text-[#4e2120] dark:text-[#ffd2cf] opacity-60 px-6 py-2 hover:bg-[#ffedeb] dark:hover:bg-stone-800 rounded-full active:scale-90 transition-transform duration-300 ease-out">
+            <span class="material-symbols-outlined" data-icon="explore">explore</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-extrabold uppercase tracking-widest">Explore</span>
+        </a>
+        <!-- Games (Active) -->
+        <a href="/games.html" class="flex flex-col items-center justify-center bg-[#ffe1df] dark:bg-[#a93000]/20 text-[#FC4C02] dark:text-[#ff784e] rounded-full px-6 py-2 active:scale-90 transition-transform duration-300 ease-out">
+            <span class="material-symbols-outlined" data-icon="sports_esports" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-extrabold uppercase tracking-widest">Games</span>
+        </a>
+        <!-- Map -->
+        <a href="/map.html" class="flex flex-col items-center justify-center text-[#4e2120] dark:text-[#ffd2cf] opacity-60 px-6 py-2 hover:bg-[#ffedeb] dark:hover:bg-stone-800 rounded-full active:scale-90 transition-transform duration-300 ease-out">
+            <span class="material-symbols-outlined" data-icon="map">map</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-extrabold uppercase tracking-widest">Map</span>
+        </a>
+        <!-- Profile -->
+        <a href="/profile.html" class="flex flex-col items-center justify-center text-[#4e2120] dark:text-[#ffd2cf] opacity-60 px-6 py-2 hover:bg-[#ffedeb] dark:hover:bg-stone-800 rounded-full active:scale-90 transition-transform duration-300 ease-out">
+            <span class="material-symbols-outlined" data-icon="person">person</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-extrabold uppercase tracking-widest">Profile</span>
+        </a>
+    </nav>
+</body>
+</html>
