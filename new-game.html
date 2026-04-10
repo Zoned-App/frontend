@@ -41,9 +41,9 @@
             width: 24px;
             height: 24px;
             border-radius: 50%;
-            background: #006592;
+            background: #FC4C02;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 101, 146, 0.3);
+            box-shadow: 0 4px 12px rgba(252, 76, 2, 0.3);
             transition: transform 0.15s ease;
         }
         input[type="range"]::-webkit-slider-thumb:active {
@@ -83,7 +83,7 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.12);
         }
         .toggle-switch input:checked + .toggle-slider {
-            background: #006592;
+            background: #FC4C02;
         }
         .toggle-switch input:checked + .toggle-slider::before {
             transform: translateX(22px);
@@ -95,12 +95,12 @@
             transition: all 0.25s ease;
         }
         .mode-card:has(input:checked) {
-            border-color: #006592;
-            background: #f0f7fc;
-            box-shadow: 0 0 0 2px #006592, 0 8px 32px rgba(0, 101, 146, 0.08);
+            border-color: #FC4C02;
+            background: #fff5f0;
+            box-shadow: 0 0 0 2px #FC4C02, 0 8px 32px rgba(252, 76, 2, 0.08);
         }
         .mode-card:has(input:checked) .mode-icon {
-            background: linear-gradient(135deg, #006592 0%, #5dbffe 100%);
+            background: linear-gradient(135deg, #FC4C02 0%, #ffaa00 100%);
             color: white;
         }
         .mode-card input { display: none; }
@@ -273,7 +273,7 @@
 
     <!-- Sticky Create Button -->
     <div class="fixed bottom-28 left-0 w-full px-6 z-40">
-        <a href="/role-selection.html" class="block w-full max-w-2xl mx-auto signature-gradient text-white py-4 rounded-2xl font-bold text-center text-lg shadow-[0_16px_48px_rgba(0,101,146,0.3)] active:scale-[0.97] transition-all duration-200 hover:shadow-[0_20px_56px_rgba(0,101,146,0.4)]">
+        <a href="/role-selection.html" class="block w-full max-w-2xl mx-auto signature-gradient text-white py-4 rounded-2xl font-bold text-center text-lg shadow-[0_16px_48px_rgba(252,76,2,0.3)] active:scale-[0.97] transition-all duration-200 hover:shadow-[0_20px_56px_rgba(252,76,2,0.4)]">
             Create Game
         </a>
     </div>
