@@ -113,6 +113,30 @@
                 map.removeLayer(newMarker);
             });
         });
+
+        // Request user's location
+        if ("geolocation" in navigator) {
+            // Optional: you could show a loading state here
+            navigator.geolocation.getCurrentPosition(function(position) {
+                const userLat = position.coords.latitude;
+                const userLng = position.coords.longitude;
+                
+                // Center map on user
+                map.setView([userLat, userLng], 14);
+
+                // Add marker for user location
+                L.marker([userLat, userLng]).addTo(map)
+                    .bindPopup(`
+                        <div class="p-2">
+                            <div class="text-[10px] font-bold text-[#FC4C02] uppercase tracking-widest mb-1 text-center">Your Location</div>
+                        </div>
+                    `)
+                    .openPopup();
+            }, function(error) {
+                console.warn("Geolocation Error:", error.message);
+                // Fallback remains the default view
+            });
+        }
         
         // Fix for Leaflet initialization in hidden/tabbed containers
         setTimeout(() => {
