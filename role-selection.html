@@ -37,41 +37,57 @@
 <!-- Role Selection Grid -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
 <!-- Hider Card -->
-<a href="/dashboard.html" class="group relative flex flex-col text-left rounded-xl bg-surface-container-lowest p-8 shadow-[0_8px_40px_rgba(36,26,25,0.04)] hover:shadow-[0_16px_64px_rgba(36,26,25,0.08)] transition-all duration-500 hover:-translate-y-2 border-none">
-<div class="w-full h-64 rounded-lg overflow-hidden mb-6 bg-surface-container-low">
-<img alt="Hider" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Atmospheric shot of a sunlit forest clearing with soft morning mist and dappled light hitting forest floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE7PA2SYcU1ZyTLHaPVINNn6neGTfNw3rBThxpTtXkZGBCvdGM9a6AKj5SzRhfTr5dhbDv7DN--KIIcIScs4xqaX5W5gD4PwRhoOd7QrELx_YbvA8iIj_Ay8y9vnGfxCd6RjRK9ER-16-t2UfislQW5iiK-tRBJAjaUL5xauT-sMRJgAD_eg03qJCWIR8PnDm_Q-rGYMcutHfGObW12OlSAZF-rzqCWclkfPPWErQBA3lRY4Bv4tIR63DGL7N8OCNkcg1mzpBeLbo"/>
+<a href="/dashboard.html" class="group relative flex flex-col items-center text-center rounded-3xl bg-surface-container-lowest p-10 shadow-[0_8px_40px_rgba(36,26,25,0.04)] hover:shadow-[0_20px_60px_rgba(36,26,25,0.10)] transition-all duration-500 hover:-translate-y-3 border border-outline-variant/10 hover:border-outline-variant/30 overflow-hidden">
+<!-- Decorative background glow -->
+<div class="absolute -top-20 -right-20 w-56 h-56 rounded-full bg-secondary-container/30 blur-3xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
+<!-- Icon Ring -->
+<div class="relative mb-6">
+<div class="w-28 h-28 rounded-full bg-gradient-to-br from-secondary-container to-surface-container-high flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-[0_8px_32px_rgba(36,26,25,0.08)]">
+<span class="material-symbols-outlined text-on-secondary-container text-5xl" style="font-size:48px; font-variation-settings: 'FILL' 1;" data-icon="visibility_off">visibility_off</span>
 </div>
-<div class="flex items-center justify-between">
-<div>
-<h3 class="text-2xl font-bold tracking-tight mb-1">Hider</h3>
-<p class="text-on-surface-variant body-lg">The art of invisibility.</p>
-</div>
-<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
-<span class="material-symbols-outlined" data-icon="visibility_off">visibility_off</span>
+<div class="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-size:16px;" data-icon="shield">shield</span>
 </div>
 </div>
-<div class="mt-4 flex gap-2">
-<span class="px-3 py-1 rounded-full bg-surface-container-high text-[11px] font-bold tracking-wider text-on-surface-variant uppercase">Evasive</span>
-<span class="px-3 py-1 rounded-full bg-surface-container-high text-[11px] font-bold tracking-wider text-on-surface-variant uppercase">Tactical</span>
+<!-- Text Content -->
+<h3 class="text-3xl font-extrabold tracking-tight mb-2">Hider</h3>
+<p class="text-on-surface-variant text-base leading-relaxed max-w-[220px] mb-5">Master the art of invisibility. Blend in, stay low, survive.</p>
+<!-- Tags -->
+<div class="flex gap-2">
+<span class="px-4 py-1.5 rounded-full bg-surface-container-high text-[11px] font-bold tracking-wider text-on-surface-variant uppercase">Evasive</span>
+<span class="px-4 py-1.5 rounded-full bg-surface-container-high text-[11px] font-bold tracking-wider text-on-surface-variant uppercase">Tactical</span>
+</div>
+<!-- CTA hint -->
+<div class="mt-6 flex items-center gap-1.5 text-on-surface-variant/60 group-hover:text-primary transition-colors duration-300">
+<span class="text-xs font-semibold uppercase tracking-widest">Select</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform duration-300" style="font-size:16px;" data-icon="arrow_forward">arrow_forward</span>
 </div>
 </a>
 <!-- Seeker Card -->
-<a href="/dashboard.html" class="group relative md:mt-12 flex flex-col text-left rounded-xl bg-surface-container-lowest p-8 shadow-[0_8px_40px_rgba(36,26,25,0.04)] hover:shadow-[0_16px_64px_rgba(36,26,25,0.08)] transition-all duration-500 hover:-translate-y-2 border-none">
-<div class="w-full h-64 rounded-lg overflow-hidden mb-6 bg-surface-container-low">
-<img alt="Seeker" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Moody silhouettes of children playing in a park at sunset with golden hour light flare and long shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjudu1nK86KEb47meHNiK_mHm4hyblzdmW7quwElHTsVhUVEjwGD0AB7ze5ZCU3wz5SQIbnf33m8vdrbLQDcu6K1PORbtm0hLTKgEusyYrAa_rxOdEDcSD-Nf3_8nAzR1n0W3wx-CN89eK-yd-XJ5dVOqq511qaom_Wan2Ju0Urs_-t2VQqodus6XYPTy3tcfiWSQWN_8Ttw3cDqnSNmoo4xIhhEkz55utppiaYS8ANGqpZoS3fJ3OiZnR8tI6tIVvRNVQzTQkxoQ"/>
+<a href="/dashboard.html" class="group relative md:mt-12 flex flex-col items-center text-center rounded-3xl bg-surface-container-lowest p-10 shadow-[0_8px_40px_rgba(36,26,25,0.04)] hover:shadow-[0_20px_60px_rgba(252,76,2,0.12)] transition-all duration-500 hover:-translate-y-3 border border-outline-variant/10 hover:border-primary/30 overflow-hidden">
+<!-- Decorative background glow -->
+<div class="absolute -top-20 -left-20 w-56 h-56 rounded-full bg-primary/10 blur-3xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
+<!-- Icon Ring -->
+<div class="relative mb-6">
+<div class="w-28 h-28 rounded-full signature-gradient flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-[0_8px_32px_rgba(252,76,2,0.25)]">
+<span class="material-symbols-outlined text-white text-5xl" style="font-size:48px; font-variation-settings: 'FILL' 1;" data-icon="radar">radar</span>
 </div>
-<div class="flex items-center justify-between">
-<div>
-<h3 class="text-2xl font-bold tracking-tight mb-1 text-primary">Seeker</h3>
-<p class="text-on-surface-variant body-lg">The thrill of the chase.</p>
-</div>
-<div class="w-12 h-12 rounded-full signature-gradient flex items-center justify-center text-white shadow-lg">
-<span class="material-symbols-outlined" data-icon="radar">radar</span>
+<div class="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-primary-container flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-primary" style="font-size:16px;" data-icon="bolt">bolt</span>
 </div>
 </div>
-<div class="mt-4 flex gap-2">
-<span class="px-3 py-1 rounded-full bg-primary-container text-[11px] font-bold tracking-wider text-primary uppercase">Tracker</span>
-<span class="px-3 py-1 rounded-full bg-primary-container text-[11px] font-bold tracking-wider text-primary uppercase">Fast</span>
+<!-- Text Content -->
+<h3 class="text-3xl font-extrabold tracking-tight mb-2 text-primary">Seeker</h3>
+<p class="text-on-surface-variant text-base leading-relaxed max-w-[220px] mb-5">Embrace the thrill of the chase. Hunt, track, dominate.</p>
+<!-- Tags -->
+<div class="flex gap-2">
+<span class="px-4 py-1.5 rounded-full bg-primary-container text-[11px] font-bold tracking-wider text-primary uppercase">Tracker</span>
+<span class="px-4 py-1.5 rounded-full bg-primary-container text-[11px] font-bold tracking-wider text-primary uppercase">Fast</span>
+</div>
+<!-- CTA hint -->
+<div class="mt-6 flex items-center gap-1.5 text-on-surface-variant/60 group-hover:text-primary transition-colors duration-300">
+<span class="text-xs font-semibold uppercase tracking-widest">Select</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform duration-300" style="font-size:16px;" data-icon="arrow_forward">arrow_forward</span>
 </div>
 </a>
 </div>
